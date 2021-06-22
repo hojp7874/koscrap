@@ -1,10 +1,10 @@
 from setuptools import setup
 
 setup(
-    name='Web-crawler',
+    name='web-crawler',
     version='1.0.0',
-    description='Web crawler',
-    url='https://github.com/hojp7874/web-crwaler',
+    description='Simple web crawler',
+    url='https://github.com/hojp7874/web-crwaler.git',
     author='hongjinpyo',
     author_email='hojp7874@gmail.com',
     license='hongjinpyo',
