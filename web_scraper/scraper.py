@@ -10,9 +10,9 @@ def coupang(search_text, items=["image", "name", "price", "star", "url"], data_n
     html = getHTML(url)
     bsObj = BeautifulSoup(html, "html.parser")
     ul = bsObj.find("ul", {"id":"productList"})
-    if not 0 < data_num <= 8:
-        print(f"{data_num}이(가) ")
     lis = ul.findAll("li", {"class":"search-product"})[:data_num]
+    if lis == []:
+        return f"'{search_text}'에 대한 검색결과가 없습니다."
     results = {}
     for idx, li in enumerate(lis):
         result = {}
@@ -53,5 +53,5 @@ def coupang(search_text, items=["image", "name", "price", "star", "url"], data_n
 if __name__ == "__main__":
     from pprint import pprint
 
-    crawling = coupang("사과")
-    pprint(crawling)
+    scrap = coupang("사과")
+    pprint(scrap)
