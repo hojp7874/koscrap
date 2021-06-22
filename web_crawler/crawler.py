@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 from urllib.parse import quote
-from modules.getHTML import getHTML
+from .modules.getHTML import getHTML
 
 
 def coupang(search_text, options=["image", "name", "price", "star", "url"]):
@@ -42,8 +42,10 @@ def coupang(search_text, options=["image", "name", "price", "star", "url"]):
     return results
 
 
-from pprint import pprint
 
 if __name__ == "__main__":
+    from pprint import pprint
+
+    
     crawling = coupang("사과")
     pprint(crawling)
