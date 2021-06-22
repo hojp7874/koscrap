@@ -1,2 +1,2 @@
 from .scraper import *
-from .modules import *
+from .modules.getHTML import getHTML
