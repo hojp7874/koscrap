@@ -1,3 +1,4 @@
+from web_scraper import modules
 from setuptools import setup
 
 setup(
@@ -8,7 +9,7 @@ setup(
     author='hongjinpyo',
     author_email='hojp7874@gmail.com',
     license='hongjinpyo',
-    packages=['web_scraper'],
+    packages=['web_scraper', modules],
     install_requires=[
         'beautifulsoup4==4.9.3',
         'bs4==0.0.1',
