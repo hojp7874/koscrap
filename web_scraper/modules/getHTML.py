@@ -1,10 +1,12 @@
 import requests
+from bs4 import BeautifulSoup
 
 def getHTML(url):
     headers = {'User-Agent' : 'Mozilla/5.0'}
     response = requests.get(url, headers=headers)
     html = response.content
-    return html
+    html_encode = BeautifulSoup(html, "html.parser")
+    return html_encode
 
 if __name__ == "__main__":
     search_text = '사과'
