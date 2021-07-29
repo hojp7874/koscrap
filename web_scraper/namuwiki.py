@@ -32,6 +32,8 @@ class Namuwiki:
         soup = BeautifulSoup(html, "html.parser")
         titles = soup.select('.wiki-heading')
         titles = list(map(lambda x: x.text, titles))
+        if not titles:
+            raise Exception(f"'{search_text}'에 대한 검색결과가 없습니다.")
         contents = soup.select('.wiki-heading-content')
         contents = list(map(lambda x: x.text, contents))
         for idx, title in enumerate(titles):
@@ -45,9 +47,8 @@ class Namuwiki:
 
             >> 어린 개를 일컫는 순우리말이다. (...이하 중략)"""
 
-        title = self._chapters['1']._title
-        content = self._chapters['1']._content
-        return f"{title}\n{content}"
+        summary = self._chapters['1']._content
+        return summary
     
     def get_list(self):
         """쳅터의 목록을 list 형태로 가져옵니다.
@@ -74,7 +75,10 @@ class Namuwiki:
         content = self._chapters[chapter_num]._content
         if not content:
             content = '(내용이 존재하지 않습니다.)'
-        return f"{title}\n{content}"
+        result = {}
+        result['title'] = title
+        result['content'] = content
+        return result
 
 if __name__ == "__main__":
     wiki = Namuwiki("강아지")
