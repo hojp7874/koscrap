@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 from urllib.parse import quote
-from modules.getHTML import getHTML
+from .modules.getHTML import getHTML
 
 
 class Chapter:
@@ -36,7 +36,6 @@ class Namuwiki:
         contents = list(map(lambda x: x.text, contents))
         for idx, title in enumerate(titles):
             self._chapters[title.split('. ')[0]] = Chapter(title.split('[편집]')[0], contents[idx])
-        # print(self._chapters[1]._title)
     
     def __str__(self):
         """클래스를 출력하면 첫 번째 쳅터(주로 '개요')의 내용을 출력합니다.
@@ -78,7 +77,5 @@ class Namuwiki:
         return f"{title}\n{content}"
 
 if __name__ == "__main__":
-    from pprint import pprint
-    wiki = Namuwiki("디스아너드")
-    print(wiki.get('2'))
-    print(wiki.get_list())
+    wiki = Namuwiki("강아지")
+    print(wiki)
