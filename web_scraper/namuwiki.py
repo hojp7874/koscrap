@@ -1,6 +1,5 @@
-from bs4 import BeautifulSoup
 from urllib.parse import quote
-from .modules.getHTML import getHTML
+from modules.get_soup import get_soup
 
 
 class Chapter:
@@ -28,8 +27,7 @@ class Namuwiki:
         
         encode_text = quote(search_text)
         url = f'https://namu.wiki/w/{encode_text}'
-        html = getHTML(url)
-        soup = BeautifulSoup(html, "html.parser")
+        soup = get_soup(url)
         titles = soup.select('.wiki-heading')
         titles = list(map(lambda x: x.text, titles))
         if not titles:
