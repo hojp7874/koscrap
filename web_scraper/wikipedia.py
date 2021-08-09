@@ -1,5 +1,5 @@
 from urllib.parse import quote
-from modules.get_soup import get_soup
+from .modules.get_soup import get_soup
 
 
 class Chapter:
@@ -85,7 +85,7 @@ class Wikipedia:
         """'chapter_num'에 해당하는 내용을 출력합니다.
         
         example:
-            print(wiki.get(2)
+            print(wiki.get(2))
             
             >> 2. 본래 뜻과 다르게 사용하는 경우
                 어린 자식이나 손주를 부르는 말로도 쓰며, (...이하 중략)
