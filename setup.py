@@ -1,10 +1,10 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='wecrap',
-    version='1.0.0',
-    description='Simple web scraper',
-    url='https://github.com/hojp7874/wecrap',
+    name='koscrap',
+    version='1.1.0',
+    description='Korean web scraper',
+    url='https://github.com/hojp7874/koscrap',
     author='hongjinpyo',
     author_email='hojp7874@gmail.com',
     license='hongjinpyo',
