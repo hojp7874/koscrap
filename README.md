@@ -1,4 +1,4 @@
-![Generic badge](https://img.shields.io/badge/version-1.0.0-green.svg) ![Generic badge](https://img.shields.io/badge/python-3.7.7-blue.svg) ![Generic badge](https://img.shields.io/badge/os-window11-red.svg)
+![Generic badge](https://img.shields.io/badge/version-1.1.0-green.svg) ![Generic badge](https://img.shields.io/badge/python-3.7.7-blue.svg) ![Generic badge](https://img.shields.io/badge/os-window10-red.svg)
 
 
 
@@ -7,6 +7,8 @@
 __쿠팡 ([쿠팡! (coupang.com)](https://www.coupang.com/))__
 
 ![image-20210622085452687](README.assets/image-20210622085452687.png)
+
+
 
 - 스크래핑 가능 항목
 
@@ -19,67 +21,65 @@ __쿠팡 ([쿠팡! (coupang.com)](https://www.coupang.com/))__
 - 스크래핑 갯수
 
   이미지: 8개
-  
+
   이외의 항목: 36개
 
 
 
-### 사용방법
+__위키피디아([위키백과, 우리 모두의 백과사전 (wikipedia.org)](https://ko.wikipedia.org/wiki/위키백과:대문))__
+
+![image-20210823232703865](README.assets/image-20210823232703865.png)
+
+
+
+검색어를 입력하면 본문 스크래핑 가능
+
+Header별로 구분하여 저장
+
+
+
+__나무위키([나무위키:대문 - 나무위키 (namu.wiki)](https://namu.wiki/w/나무위키:대문))__
+
+![image-20210823232750161](README.assets/image-20210823232750161.png)
+
+
+
+검색어를 입력하면 본문 스크래핑 가능
+
+Header별로 구분하여 저장
+
+
+
+### Installation
 
 __pip 설치__
 
 ```python
-pip install git+https://github.com/hojp7874/web-scraper.git
-```
-
-__import__
-
-```python
-from web_scraper import coupang
+pip install koscrap
 ```
 
 __사용__
 
 ```python
-scrap = coupang("사과", items=["image", "name", "price", "star", "url"], data_num="3", results_type="dict")
+from koscrap import Coupang
 
-print(scrap)
+c = Coupang('가방')
+c.get_images() #=> [이미지 src 1, 이미지 src 2, ...]
 ```
-
-
-
-### 입출력
-
-__입력 형태__
-
-- search_text
-  - 찾는 품목의 이름
-  - string 형태
-  - 해당 품목이 없을 경우 검색결과가 없다는 메시지 출력
-- items
-  - 출력 데이터 폼
-  - list 형태
-
-
-
-|       | search_text                                      | items                                                        | data_num                                                     | results_type           |
-| ----- | ------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ---------------------- |
-| 정의  | 찾고자 하는 품목의 이름                          | 출력 데이터 폼                                               | 페이지당 출력할 데이터 양                                    | 출력 데이터 형태       |
-| 형태  | str                                              | list                                                         | int                                                          | str                    |
-| valid | 해당 품목이 없으면 검색결과가 없다는 메시지 출력 | list의 요소로 `image`, `name`, `price`, `star`, `url`만 가능 | 1 이상의 정수, 또는 `None`만 가능<br />`None`이면, 최대 출력(36개) | `dict`와 `json`만 가능 |
-
-
 
 
 
 ### release
 
-__1.0.0__ 쿠팡 스크래핑 적용
+__1.0.0__
+
+> - 쿠팡 스크래핑 적용
 
 
 
+__1.1.0__
 
+> - 나무위키, 위키피디아 스크래핑
+> - 패키지명 koscrap으로 변경 및 pypi에 배포
+> - 패키지 class형태로 구조 변경
 
-### 계획
-
-`page` 요소 추가하여 해당 페이지까지 데이터를 수집할 수 있도록 설정
